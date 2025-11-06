@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto | DONOSWAVE</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/contacto.css') }}" />
+  <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+  <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="cabecera">
+        <div class="logo">
+            <a href="{{url_for('catalog.home')}}"><img src="{{ url_for('static', filename='imagenes/logo_naranja.png') }}" alt="Logo"></a>
+        </div>
+        <nav>
+            <a href="{{url_for('catalog.home')}}">INICIO</a>
+            <a href="{{url_for('catalog.productos')}}">PRODUCTOS</a>
+            <a href="{{url_for('catalog.contacto')}}">CONTACTANOS</a>
+            <a href="#">INICIAR SESIÓN</a>
+        </nav>
+    </header>
+
+  <main class="contacto-main">
+    <h2>Contáctanos</h2>
+    <p>¿Tienes alguna pregunta o sugerencia? Rellena el formulario y te responderemos lo antes posible.</p>
+
+    <form class="form-contacto" action="/api/contacto" method="POST">
+      <div class="campo">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre..." required />
+      </div>
+
+      <div class="campo">
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" name="email" placeholder="tuemail@ejemplo.com" required />
+      </div>
+
+      <div class="campo">
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+      </div>
+
+      <button type="submit" class="btn-enviar">Enviar mensaje</button>
+    </form>
+  </main>
+
+ 
+  <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>DONOSWAVE</h3>
+                <p>· Tu plataforma de confianza para eventos y entradas en Donostia-San Sebastián.</p>
+            </div>
+        
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>· E-mail: Info@donoswave.com</p>
+                <p>· Tlf: +34 943 123 456</p>
+                <p>· Localidad: Donostia-San Sebastián, España</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Dónde estamos situados</h3>
+                <button id="mostrarMapa" class="btn">Ver mapa</button>
+
+                <div id="map" style="display: none;"></div>
+                <br>
+                <a href="https://maps.app.goo.gl/iR4Lowr8q8D9dkv7A" target="_blank"></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 DONOSWAVE. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <script src="{{ url_for('static', filename='JS/mapa.js') }}"></script>
+</body>
+</html>

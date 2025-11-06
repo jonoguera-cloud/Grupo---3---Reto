@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos | DONOSWAVE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/productos.css') }}">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+</head>
+
+<body>
+    <header class="cabecera">
+        <div class="logo">
+            <a href="{{url_for('catalog.home')}}"><img src="{{ url_for('static', filename='imagenes/logo_naranja.png') }}" alt="Logo"></a>
+        </div>
+        <nav>
+            <a href="{{url_for('catalog.home')}}">INICIO</a>
+            <a href="{{url_for('catalog.productos')}}">PRODUCTOS</a>
+            <a href="{{url_for('catalog.contacto')}}">CONTACTANOS</a>
+            <a href="#">INICIAR SESIÓN</a>
+        </nav>
+    </header>
+
+    <main class="contenido-principal">
+        <section class="productos">
+            <h2>Nuestros Eventos Destacados</h2>
+            <p>Elige entre los mejores eventos y consigue tus entradas antes de que se agoten.</p>
+
+            <div class="grid-productos">
+
+                <div class="producto">
+                    <img class="imagen-jazzaldi" src="{{ url_for('static', filename='imagenes/Jazzaldia.jpg') }}" alt="Jazzaldia">
+                    <h3>Jazzaldia</h3>
+                    <p>Vive una noche inolvidable con los mejores artistas locales e internacionales en la Zurriola.</p>
+                    <span class="precio">25€</span>
+                    <button class="btn">Comprar Entrada</button>
+                </div>
+
+                <div class="producto">
+                    <img class="imagen-gastronomica" src="{{ url_for('static', filename='imagenes/gastronomia.jpg') }}" alt="Festival Gastronómico">
+                    <h3>Festival Gastronómico</h3>
+                    <p>Participa en el festival con los mejores cocineros del país. ¡No te lo pierdas!</p>
+                    <span class="precio">60€</span>
+                    <button class="btn">Comprar Entrada</button>
+                </div>
+
+                <div class="producto">
+                    <img class="imagen-cine" src="{{ url_for('static', filename='imagenes/cine.jpg') }}" alt="Festival de Cine">
+                    <h3>Cinemaldia</h3>
+                    <p>Entrega de premios y exposición de películas que nunca antes has visto.</p>
+                    <span class="precio">18€</span>
+                    <button class="btn">Comprar Entrada</button>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+     <footer id="contacto">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>DONOSWAVE</h3>
+                <p>· Tu plataforma de confianza para eventos y entradas en Donostia-San Sebastián.</p>
+            </div>
+        
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>· E-mail: Info@donoswave.com</p>
+                <p>· Tlf: +34 943 123 456</p>
+                <p>· Localidad: Donostia-San Sebastián, España</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Dónde estamos situados</h3>
+                <button id="mostrarMapa" class="btn">Ver mapa</button>
+
+                <div id="map" style="display: none;"></div>
+                <br>
+                <a href="https://maps.app.goo.gl/iR4Lowr8q8D9dkv7A" target="_blank"></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 DONOSWAVE. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <script src="{{ url_for('static', filename='JS/mapa.js') }}"></script>
+</body>
+</html>
