@@ -15,8 +15,10 @@
 </head>
 
 <body>
+    <!-- Cabecera con logo y navegación principal -->
     <header class="cabecera">
         <div class="logo">
+             <!-- Logo que si clicas vuelves a la página principal. -->
             <a href="{{url_for('catalog.home')}}"><img src="{{ url_for('static', filename='imagenes/logo_naranja.png') }}" alt="Logo"></a>
         </div>
         <nav>
@@ -27,13 +29,14 @@
         </nav>
     </header>
 
+    <!-- Contenido principal de la página de productos, con sus productos a la venta. -->
     <main class="contenido-principal">
         <section class="productos">
             <h2>Nuestros Eventos Destacados</h2>
-            <p>Elige entre los mejores eventos y consigue tus entradas antes de que se agoten.</p>
+            <p>Descubre la mejor selección de eventos en San Sebastián y sus alrededores. Conciertos, festivales, teatro, deportes y mucho más te esperan. Explora nuestras opciones y consigue tus entradas fácilmente antes de que se agoten.</p>
 
+            <!-- Contenidos de los productos/entradas de la página utilizando grid. -->
             <div class="grid-productos">
-
                 <div class="producto">
                     <img class="imagen-jazzaldi" src="{{ url_for('static', filename='imagenes/Jazzaldia.jpg') }}" alt="Jazzaldia">
                     <h3>Jazzaldia</h3>
@@ -61,7 +64,7 @@
             </div>
         </section>
     </main>
-
+    <!-- Pie de página con información y mapa, lo mismo que la página de index que esta más comentada. -->
      <footer id="contacto">
         <div class="footer-content">
             <div class="footer-section">

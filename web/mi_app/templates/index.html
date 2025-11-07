@@ -4,22 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DONOSWAVE</title>
+    <!-- Estilos principales -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     
-    <!-- Leaflet CSS -->
+    <!-- Librería Leaflet para el mapa -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 
-    <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 </head>
 <body>
+    <!-- Logo y navegación principal -->
     <header class="cabecera">
         <div class="logo">
-            <a href="{{url_for('catalog.home')}}"><img src="{{ url_for('static', filename='imagenes/logo_naranja.png') }}" alt="Logo"></a>
+            <!-- Logo que si se hace click vuelve a la página principal. -->
+            <a href="{{url_for('catalog.home')}}">
+                <img src="{{ url_for('static', filename='imagenes/logo_naranja.png') }}" alt="Logo">
+            </a>
         </div>
+
         <nav>
+            <!-- Rutas que te llevan a cada página de la web -->
             <a href="{{url_for('catalog.home')}}">INICIO</a>
             <a href="{{url_for('catalog.productos')}}">PRODUCTOS</a>
             <a href="{{url_for('catalog.contacto')}}">CONTACTANOS</a>
@@ -27,6 +33,7 @@
         </nav>
     </header>
 
+    <!-- Contenido principal de la página home -->
     <main class="contenido-principal">
         <section class="hero">
             <h2>Bienvenido a DONOSWAVE</h2>
@@ -35,13 +42,15 @@
         </section>
     </main>
 
+    <!-- Pie de página con información y mapa -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
                 <h3>DONOSWAVE</h3>
-                <p>· Tu plataforma de confianza para eventos y entradas en Donostia-San Sebastián.</p>
+                <p>Tu plataforma de confianza para eventos y entradas en Donostia-San Sebastián.</p>
             </div>
         
+            <!-- Nuestros datos de contacto. -->
             <div class="footer-section">
                 <h3>Contacto</h3>
                 <p>· E-mail: Info@donoswave.com</p>
@@ -49,20 +58,25 @@
                 <p>· Localidad: Donostia-San Sebastián, España</p>
             </div>
             
+            <!-- Mapa con Leaflet -->
             <div class="footer-section">
                 <h3>Dónde estamos situados</h3>
+                <!-- Botón para el mapa -->
                 <button id="mostrarMapa" class="btn">Ver mapa</button>
 
                 <div id="map" style="display: none;"></div>
                 <br>
+
                 <a href="https://maps.app.goo.gl/iR4Lowr8q8D9dkv7A" target="_blank"></a>
             </div>
         </div>
+
         <div class="footer-bottom">
             <p>&copy; 2025 DONOSWAVE. Todos los derechos reservados.</p>
         </div>
     </footer>
 
+    <!-- JS de Leaflet y script para el mapa -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 

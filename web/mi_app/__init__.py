@@ -1,10 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-# from  mi_app.catalogo.vistas import catalog
-# si lo pongo aquí me da un problema de importación circular
-# ImportError: cannot import name 'db' from partially 
-# #initialized module 'mi_app' (most likely due to a circular 
-# import). Normal, en vistas se hace import db, todavía no creado.
+# Utilizamos el app.config para conectarnos a la base de datos que esta en postgresql
+# Añadimos los datos de nuestra Base de Datos, el usuario y la contraseña.
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://grupo3RETO:admin@localhost/RETO1'
 db = SQLAlchemy(app)

@@ -1,5 +1,5 @@
+/* --- VARIABLES DE COLOR PARA TODO EL CSS --- */
 :root {
-
   --color-fondo: #f4f4f9;
   --color-blanco: #ffffff;
   --color-texto: #333;
@@ -22,7 +22,7 @@
   --color-sombra-fuerte: rgba(0, 0, 0, 0.3);
 }
 
-
+/* --- ESTILOS BASE --- */
 * {
   margin: 0;
   padding: 0;
@@ -34,7 +34,7 @@ body {
   background-color: var(--color-fondo);
 }
 
-
+/* --- CABECERA --- */
 .cabecera {
   display: flex;
   justify-content: space-between;
@@ -42,6 +42,7 @@ body {
   background-color: var(--color-header-footer-fondo);
   padding: 15px 40px;
   box-shadow: 0 3px 8px var(--color-sombra-media);
+  flex-wrap: wrap;
 }
 
 .logo {
@@ -61,12 +62,13 @@ body {
   font-weight: 600;
 }
 
-
+/* --- NAVEGACIÓN --- */
 nav {
   display: flex;
   gap: 25px;
   align-items: center;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 nav a {
@@ -81,27 +83,7 @@ nav a:hover {
   transform: scale(1.1);
 }
 
-
-@media (max-width: 768px) {
-  .cabecera {
-    flex-direction: column;
-    padding: 15px;
-  }
-
-  nav {
-    flex-direction: column;
-    align-items: center;
-    margin-top: 10px;
-  }
-}
-
-
-.contenido-principal {
-  padding: 40px;
-  text-align: center;
-}
-
-
+/* --- HERO --- */
 .hero {
   background: linear-gradient(135deg, var(--color-principal) 0%, var(--color-principal-hover) 100%);
   min-height: 400px;
@@ -128,7 +110,7 @@ nav a:hover {
   margin-bottom: 30px;
 }
 
-
+/* --- BOTONES --- */
 .btn {
   display: inline-block;
   background: var(--color-blanco);
@@ -145,7 +127,7 @@ nav a:hover {
   transform: scale(1.05);
 }
 
-
+/* --- GRID DE PRODUCTOS --- */
 .grid-productos {
   display: flex;
   flex-direction: column;
@@ -154,24 +136,29 @@ nav a:hover {
   width: 100%;
 }
 
+/* --- PRODUCTOS --- */
 .producto {
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 100%;
   background-color: var(--color-blanco);
   border: 2px solid var(--color-borde-producto);
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 3px 12px var(--color-sombra-suave);
   gap: 20px;
+  transition: transform 0.3s ease;
+}
+
+.producto:hover {
+  transform: scale(1.01);
 }
 
 .producto img {
   width: 180px;
   height: 180px;
   border-radius: 12px;
-  object-fit: unset;
+  object-fit: cover;
 }
 
 .producto .info {
@@ -184,13 +171,12 @@ nav a:hover {
 .producto .info h3 {
   font-size: 24px;
   font-weight: 700;
-  margin: 0 0 10px 0;
+  margin-bottom: 10px;
   color: var(--color-texto);
 }
 
 .producto .info p {
   font-size: 16px;
-  margin: 0;
   color: var(--color-secundario-texto);
 }
 
@@ -210,13 +196,7 @@ nav a:hover {
   background-color: var(--color-boton-hover);
 }
 
-.producto-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-
+/* --- FOOTER --- */
 footer {
   background: var(--color-header-footer-fondo);
   color: var(--color-blanco);
@@ -256,7 +236,7 @@ footer {
   color: var(--color-footer-bottom-texto);
 }
 
-
+/* --- MAPA --- */
 #map {
   width: 100%;
   height: 250px;
@@ -282,9 +262,99 @@ footer {
   transform: scale(1.05);
 }
 
-
 .imagen-jazzaldi {
   width: 30px;
   height: auto;
   border-radius: 10px;
+}
+
+/* ===================== MEDIA QUERIES ===================== */
+
+/* --- Pantallas medianas (tablets, 992px o menos) --- */
+@media (max-width: 992px) {
+  .hero h2 {
+    font-size: 2.4rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .producto {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .producto img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .cabecera {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+}
+
+/* --- Pantallas pequeñas (smartphones, 768px o menos) --- */
+@media (max-width: 768px) {
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  .btn {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+
+  .producto img {
+    width: 130px;
+    height: 130px;
+  }
+
+  .grid-productos {
+    padding: 20px;
+  }
+
+  footer {
+    padding: 40px 20px;
+  }
+}
+
+/* --- Pantallas muy pequeñas (480px o menos) --- */
+@media (max-width: 480px) {
+  .hero {
+    padding: 40px 10px;
+  }
+
+  .hero h2 {
+    font-size: 1.6rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  .producto {
+    padding: 15px;
+  }
+
+  .producto img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .logo h1 {
+    font-size: 1.2rem;
+  }
+
+  nav a {
+    font-size: 0.9rem;
+  }
 }

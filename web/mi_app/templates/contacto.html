@@ -15,6 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Cabecera de la página de contactos. -->
     <header class="cabecera">
         <div class="logo">
             <a href="{{url_for('catalog.home')}}"><img src="{{ url_for('static', filename='imagenes/logo_naranja.png') }}" alt="Logo"></a>
@@ -27,10 +28,12 @@
         </nav>
     </header>
 
+  <!-- Contenido de la página, utilizamos un formulario para las dudas del cliente de forma sencilla sin tener que logearse. -->  
   <main class="contacto-main">
     <h2>Contáctanos</h2>
     <p>¿Tienes alguna pregunta o sugerencia? Rellena el formulario y te responderemos lo antes posible.</p>
 
+     <!-- Pedimos el nombre el email y le pedimos el mensaje al cliente. -->
     <form class="form-contacto" action="/api/contacto" method="POST">
       <div class="campo">
         <label for="nombre">Nombre</label>
@@ -47,11 +50,12 @@
         <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
       </div>
 
+       <!-- Por ultimo un boton para mandar los datos a la bd. -->
       <button type="submit" class="btn-enviar">Enviar mensaje</button>
     </form>
   </main>
 
- 
+  <!-- Pie de página con información y mapa, lo mismo que la página de index que esta más comentada. -->
   <footer>
         <div class="footer-content">
             <div class="footer-section">

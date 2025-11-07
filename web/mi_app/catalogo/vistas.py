@@ -3,22 +3,23 @@ from mi_app import db
 from mi_app.catalogo.modelos import Producto, Usuarios, Ventas, Contacto, Pagos
 
 catalog = Blueprint('catalog',__name__)
-
+#CADA RUTA ES PARA IR DE UNA PAGINA A OTRA
 @catalog.route('/')
-
+# Página de inicio
 @catalog.route('/home')
 def home():
     return render_template('index.html')
-
+# Página de productos
 @catalog.route('/productos')
 def productos():
     return render_template('productos.html')
-
+# Página de contacto
 @catalog.route('/contacto')
 def contacto():
     return render_template('contacto.html')
 
 # -------------------- PRODUCTOS (Entradas) --------------------
+# Obtener todos los productos EN FORMA DE JSON
 @catalog.route('/api/productos', methods=['GET'])
 def listar_productos():
     productos = Producto.query.all()
@@ -45,7 +46,7 @@ def obtener_producto(id):
         'fecha_fin': str(producto.fecha_fin)
     })
 
-
+#PARA CREAR UN PRODUCTO NUEVO 
 @catalog.route('/producto', methods=['POST'])
 def crear_producto():
     data = request.get_json()
@@ -61,35 +62,11 @@ def crear_producto():
     return jsonify({'mensaje': 'Producto creado correctamente'}), 201
 
 
-# -------------------- USUARIOS --------------------
-@catalog.route('/usuarios', methods=['GET'])
-def listar_usuarios():
-    usuarios = Usuarios.query.all()
-    res = [{
-        'id_usuario': u.id_usuario,
-        'nombre_usuario': u.nombre_usuario,
-        'email': u.email,
-        'fecha_registro': str(u.fecha_registro)
-    } for u in usuarios]
-    return jsonify(res)
-
-
-@catalog.route('/usuario/<int:id>', methods=['GET'])
-def obtener_usuario(id):
-    usuario = Usuarios.query.get_or_404(id)
-    return jsonify({
-        'id_usuario': usuario.id_usuario,
-        'nombre_usuario': usuario.nombre_usuario,
-        'email': usuario.email,
-        'fecha_registro': str(usuario.fecha_registro)
-    })
-
-
+# -------------------- CONTACTO --------------------
+# RUTA PARA REGISTRAR LOS DATOS DEL FORMULARIO DE CONTACTO EN FORMA DE JSON
 @catalog.route('/api/contacto', methods=['POST'])
 def registrar_contacto():
-    """
-    Ruta para registrar mensajes del formulario de contacto (desde el HTML).
-    """
+   
     nombre = request.form.get('nombre')
     correo = request.form.get('email')
     mensaje = request.form.get('mensaje')
@@ -103,12 +80,10 @@ def registrar_contacto():
     db.session.commit()
 
     return render_template('contacto.html', enviado=True)
-
+# RUTA PARA VER LOS DATOS DE CONTACTOS EN FORMA DE JSON
 @catalog.route('/api/contactos', methods=['GET'])
 def listar_contactos():
-    """
-    Devuelve todos los contactos registrados en formato JSON.
-    """
+    
     contactos = Contacto.query.order_by(Contacto.fecha_envio.desc()).all()
 
     resultado = [{
@@ -121,6 +96,8 @@ def listar_contactos():
 
     return jsonify(resultado)
 
+
+"""
 # -------------------- VENTAS --------------------
 @catalog.route('/ventas', methods=['GET'])
 def listar_ventas():
@@ -146,3 +123,27 @@ def listar_pagos():
         'fecha_pago': str(p.fecha_pago)
     } for p in pagos]
     return jsonify(res)
+
+# -------------------- USUARIOS --------------------
+@catalog.route('/usuarios', methods=['GET'])
+def listar_usuarios():
+    usuarios = Usuarios.query.all()
+    res = [{
+        'id_usuario': u.id_usuario,
+        'nombre_usuario': u.nombre_usuario,
+        'email': u.email,
+        'fecha_registro': str(u.fecha_registro)
+    } for u in usuarios]
+    return jsonify(res)
+
+
+@catalog.route('/usuario/<int:id>', methods=['GET'])
+def obtener_usuario(id):
+    usuario = Usuarios.query.get_or_404(id)
+    return jsonify({
+        'id_usuario': usuario.id_usuario,
+        'nombre_usuario': usuario.nombre_usuario,
+        'email': usuario.email,
+        'fecha_registro': str(usuario.fecha_registro)
+    })
+"""

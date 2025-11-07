@@ -1,4 +1,4 @@
-// Espera a que el contenido de la página esté completamente cargado
+// Esperamos a que el contenido de la página esté completamente cargado
 document.addEventListener("DOMContentLoaded", () => {
     const boton = document.getElementById("mostrarMapa");
     const mapaDiv = document.getElementById("map");
@@ -17,13 +17,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Se crea el mapa centrado en Donostia-San Sebastián con las coordenadas dadas.
                 const map = L.map('map').setView([43.3199738, -1.9723845], 15);
 
-                // Capa base del mapa
                 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     maxZoom: 19,
                     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                 }).addTo(map);
 
-                // Marcador con popup informativo
+                // Popup informativo para saber donde esta nuestra tienda física.
                 L.marker([43.3199738, -1.9723845]).addTo(map)
                     .bindPopup(`
                         <b>DONOSWAVE</b><br>
@@ -37,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 mapaDiv.dataset.loaded = "true"; 
             }
         } 
-        // Si el mapa está visible, se oculta
+        // Si el mapa se ve y queremos cerrarlo con el boton, se oculta
         else {
             mapaDiv.style.display = "none";
             boton.textContent = "Ver mapa"; 

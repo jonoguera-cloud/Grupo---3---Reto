@@ -1,16 +1,18 @@
 from mi_app import db
 from datetime import date
-
+# MODELOS DE LA BASE DE DATOS CREAMOS AQUÍ LAS TABLAS QUE VAMOS A UTILIZAR EN LA APLICACIÓN
+# CADA CLASE REPRESENTA UNA TABLA DIFERENTE
 class Producto(db.Model):
     __tablename__ = 'producto'
-
+    #LOS ATRIBUTOS DE LA CLASE SON LAS COLUMNAS DE LA TABLA 
+    #LOS DATOS LOS METES DE ESTA MANERA LO UNICO RARO ES LAS CLAVES FORANEAS HAY EXPLICACION ABAJO
     id_producto = db.Column(db.Integer, primary_key=True)
     nombre = db.Column(db.String(255))
     descripcion = db.Column(db.String(600))
     precio = db.Column(db.Float)
     fecha_inicio = db.Column(db.Date)
     fecha_fin = db.Column(db.Date)
-
+    #TODAS LAS CLASES TIENE SU CONSTRUCTOR QUE INICIALIZA LOS ATRIBUTOS DE LA CLASE
     def __init__(self, nombre, descripcion, precio, fecha_inicio, fecha_fin):
         self.nombre = nombre
         self.descripcion = descripcion
@@ -45,6 +47,7 @@ class Ventas(db.Model):
     __tablename__ = 'ventas'
 
     id_venta = db.Column(db.Integer, primary_key=True)
+    #ESTE ES UN EJEMPLO DE CLAVE FORANEA PARA RELACIONAR TABLAS
     id_producto = db.Column(db.Integer, db.ForeignKey('producto.id_producto'))
     id_usuario = db.Column(db.Integer, db.ForeignKey('usuarios.id_usuario'))
     cantidad = db.Column(db.Integer)

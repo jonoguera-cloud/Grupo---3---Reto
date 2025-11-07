@@ -1,5 +1,5 @@
+/* --- VARIABLES DE COLOR PARA TODO EL CSS --- */
 :root {
-  /* 🎨 Paleta de colores */
   --color-fondo: #f4f4f9;
   --color-texto: #333;
   --color-secundario-texto: #555;
@@ -21,7 +21,9 @@
   --color-sombra-principal: rgba(255, 107, 53, 0.4);
 }
 
-/* ------------------------------ */
+/* --- ESTILOS BASE DE NUESTRO CSS PARA TODA LA PAGÍNA INDEX --- */
+/* --- ESCOGEMOS LOS MAGENES PARA TODA LA PÁGINA Y EL 
+       TIPO DE LETREA QUE QUEREMOS ---*/
 
 * {
   margin: 0;
@@ -35,7 +37,9 @@ body {
   color: var(--color-texto);
   line-height: 1.6;
 }
-
+/* --- CABECERA SENCILLA CON FLEX PARA EL LOGO Y PODER ENTRAR A LAS DISTINTAS PÁGINAS DE LA WEB --- */
+/* --- UTILIZAMOS FLEX PARA SEPAR POR BLOQUES Y DEJAMOS ESPACIO ENTRE ELLOS Y LO JUSTIFICAMOS AL CENTRO, 
+       APLICAMOS TAMBIEN CSS PARA EL LOGO ESTE BIEN CENTRADO Y TENGA UN TAMAÑO ADECUADO. --- */
 .cabecera {
   display: flex;
   justify-content: space-between;
@@ -67,7 +71,7 @@ nav a.activo {
   color: var(--color-acento);
   transform: scale(1.05);
 }
-
+/* --- ESTILOS ESPECÍFICOS PARA LA PÁGINA DE CONTACTO --- */
 .contacto-main {
   max-width: 700px;
   margin: 60px auto;
@@ -88,7 +92,7 @@ nav a.activo {
   margin-bottom: 35px;
   color: var(--color-secundario-texto);
 }
-
+/* --- FORMULARIO DE CONTACTO --- */
 .form-contacto {
   display: flex;
   flex-direction: column;
@@ -110,6 +114,9 @@ nav a.activo {
   border-radius: 8px;
   font-size: 1rem;
   transition: border-color 0.3s, box-shadow 0.3s;
+  resize: vertical;
+  min-height: 100px;
+  max-height: 300px;
 }
 
 .campo input:focus,
@@ -135,7 +142,7 @@ nav a.activo {
   background: var(--color-principal-hover);
   transform: scale(1.03);
 }
-
+/* --- ESTILOS PARA EL FOOTER DE LA PÁGINA --- */
 footer {
   background: var(--color-header-footer-fondo);
   color: var(--color-blanco);
@@ -169,7 +176,7 @@ footer {
   color: var(--color-footer-bottom-texto);
   font-size: 0.9rem;
 }
-
+/* --------- MAPA ----------- */
 #map {
   width: 100%;
   height: 250px;
@@ -194,7 +201,7 @@ footer {
   color: var(--color-blanco);
   transform: scale(1.05);
 }
-
+/* ---  ESTILO RESPONSIVE --- */
 @media (max-width: 768px) {
   .cabecera {
     flex-direction: column;
