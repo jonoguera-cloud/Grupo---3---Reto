@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - DONOSWAVE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        /* Estilos rápidos para centrar el formulario */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #f4f4f9;
+            font-family: 'Poppins', sans-serif;
+        }
+        .login-container {
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #ff6b35;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 12px 15px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+        .btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 30px;
+            background-color: #ff6b35;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: #f7931e;
+        }
+        .register-btn {
+            background-color: #00b4d8;
+        }
+        .register-btn:hover {
+            background-color: #0096c7;
+        }
+        .flash {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+            color: #fff;
+        }
+        .error {
+            background-color: #e63946;
+        }
+        .success {
+            background-color: #06d6a0;
+        }
+        p {
+            margin-top: 15px;
+        }
+        p a {
+            color: #00b4d8;
+            text-decoration: none;
+        }
+        p a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Iniciar Sesión</h2>
+
+    <!-- Mensajes flash -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash {{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <!-- Formulario login -->
+    <form method="POST" action="{{ url_for('catalog.login') }}">
+        <input type="text" name="username" placeholder="Usuario" required>
+        <input type="password" name="password" placeholder="Contraseña" required>
+        <button type="submit" class="btn">Iniciar Sesión</button>
+    </form>
+
+  
+
+    <p>¿No tienes cuenta? Haz clic en <a href="{{ url_for('catalog.register') }}">Registrarse</a></p>
+</div>
+
+</body>
+</html>

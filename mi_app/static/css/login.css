@@ -1,0 +1,115 @@
+/* ================= LOGIN DONOSWAVE ================= */
+/* Usa las mismas variables y estética del CSS principal */
+
+/* CONTENEDOR GENERAL */
+.login-container {
+  min-height: calc(100vh - 200px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+/* TARJETA DE LOGIN */
+.login-card {
+  background: var(--color-blanco);
+  padding: 45px 40px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 10px 30px var(--color-sombra-media);
+  text-align: center;
+}
+
+.login-card h2 {
+  font-size: 2rem;
+  color: var(--color-principal);
+  margin-bottom: 10px;
+}
+
+.login-subtitle {
+  color: var(--color-secundario-texto);
+  font-size: 0.95rem;
+  margin-bottom: 30px;
+}
+
+/* FORMULARIO */
+.form-group {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  color: var(--color-texto);
+  margin-bottom: 8px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 0.95rem;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--color-principal);
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.2);
+}
+
+/* BOTÓN LOGIN */
+.btn-login {
+  width: 100%;
+  margin-top: 10px;
+  background: linear-gradient(135deg, var(--color-principal), var(--color-principal-secundario));
+  color: var(--color-blanco);
+  border: none;
+  padding: 14px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px var(--color-sombra-media);
+}
+
+/* LINKS */
+.login-links {
+  margin-top: 25px;
+  font-size: 0.9rem;
+}
+
+.login-links a {
+  color: var(--color-principal);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.login-links a:hover {
+  color: var(--color-acento);
+}
+
+.login-links span {
+  margin: 0 8px;
+  color: var(--color-secundario-texto);
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 35px 25px;
+  }
+
+  .login-card h2 {
+    font-size: 1.6rem;
+  }
+}

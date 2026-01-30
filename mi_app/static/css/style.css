@@ -1,0 +1,431 @@
+/* --- VARIABLES --- */
+:root {
+  --color-fondo: #f4f4f9;
+  --color-texto: #333;
+  --color-secundario-texto: #555;
+  --color-borde: #ddd;
+  --color-blanco: #ffffff;
+
+  --color-principal: #ff6b35;
+  --color-principal-hover: #f0652a;
+  --color-acento: #00b4d8;
+
+  --color-header-footer-fondo: #1e1e2f;
+  --color-footer-texto: #ccc;
+  --color-footer-borde: rgba(255, 255, 255, 0.1);
+  --color-footer-bottom-texto: #999;
+
+  --color-sombra-suave: rgba(0, 0, 0, 0.1);
+  --color-sombra-media: rgba(0, 0, 0, 0.2);
+  --color-sombra-fuerte: rgba(0, 0, 0, 0.3);
+  --color-sombra-principal: rgba(255, 107, 53, 0.4);
+}
+
+/* --- RESET --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  line-height: 1.6;
+}
+
+/* --- HEADER (igual que contacto.css) --- */
+.cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-header-footer-fondo);
+  padding: 15px 40px;
+  box-shadow: 0 3px 8px var(--color-sombra-media);
+}
+
+.logo img {
+  width: 55px;
+  height: 55px;
+}
+
+nav {
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  color: var(--color-blanco);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s, transform 0.3s;
+}
+
+nav a:hover,
+nav a.activo {
+  color: var(--color-acento);
+  transform: scale(1.05);
+}
+
+.login-btn {
+  background: var(--color-principal);
+  color: var(--color-blanco);
+  padding: 8px 18px;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.login-btn:hover {
+  background: var(--color-principal-hover);
+  transform: scale(1.05);
+}
+
+/* --- HERO --- */
+.hero {
+  background: linear-gradient(135deg, var(--color-principal), var(--color-principal-hover));
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.hero h1 { font-size: 3rem; margin-bottom: 15px; }
+.hero p { font-size: 1.2rem; margin-bottom: 30px; }
+
+.btn-principal {
+  background: white;
+  color: var(--color-principal);
+  padding: 14px 36px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* --- ESTILOS DE FORMULARIO DE CONTACTO (movidos desde contacto.css) --- */
+.contacto-main {
+  max-width: 700px;
+  margin: 60px auto;
+  background: var(--color-blanco);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px var(--color-sombra-suave);
+  padding: 40px 50px;
+  text-align: center;
+}
+
+.contacto-main h2 {
+  color: var(--color-principal);
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+}
+
+.contacto-main p {
+  margin-bottom: 35px;
+  color: var(--color-secundario-texto);
+}
+
+/* FORMULARIO DE CONTACTO */
+.form-contacto {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+}
+
+.campo label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: var(--color-texto);
+}
+
+.campo input,
+.campo textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1.5px solid var(--color-borde);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  resize: vertical;
+  min-height: 100px;
+  max-height: 300px;
+}
+
+.campo input:focus,
+.campo textarea:focus {
+  border-color: var(--color-principal);
+  box-shadow: 0 0 6px var(--color-sombra-principal);
+  outline: none;
+}
+
+.btn-enviar {
+  background: var(--color-principal);
+  color: var(--color-blanco);
+  border: none;
+  padding: 14px 0;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn-enviar:hover {
+  background: var(--color-principal-hover);
+  transform: scale(1.03);
+}
+
+/* --- PRODUCTOS --- */
+.productos {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.productos h2 { text-align: center; margin-bottom: 30px; }
+
+/* --- FILTROS --- */
+.filtros {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.filtro {
+  border: 2px solid var(--color-principal);
+  background: white;
+  color: var(--color-principal);
+  padding: 8px 22px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.filtro.activo,
+.filtro:hover {
+  background: var(--color-principal);
+  color: white;
+}
+
+/* --- GRID PRODUCTOS --- */
+.grid-productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.producto-card {
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.producto-card:hover { transform: translateY(-6px); }
+
+.producto-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.producto-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.producto-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.precio {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--color-principal);
+}
+
+.btn-secundario {
+  background: var(--color-principal);
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* --- PAGINACIÓN --- */
+.paginacion {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 40px;
+}
+
+.paginacion button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: white;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.paginacion button.activo,
+.paginacion button:hover {
+  background: var(--color-principal);
+  color: white;
+}
+
+/* --- FOOTER --- */
+footer {
+  background: var(--color-header-footer-fondo);
+  color: var(--color-blanco);
+  padding: 50px 40px 20px;
+  margin-top: 60px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 40px;
+}
+
+.footer-section h3 { color: var(--color-principal); }
+.footer-section p { color: var(--color-footer-texto); }
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid var(--color-footer-borde);
+  margin-top: 20px;
+  padding-top: 15px;
+  color: var(--color-footer-bottom-texto);
+}
+/* --- BOTÓN MAPA FOOTER --- */
+#map {
+    height: 300px;
+    width: 100%;
+    margin-top: 10px;
+}
+#mostrarMapa {
+  background: linear-gradient(135deg, var(--color-principal), var(--color-principal-hover));
+  color: white;
+  border: none;
+  padding: 10px 26px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px var(--color-sombra-principal);
+  transition: all 0.3s ease;
+}
+#mostrarMapa:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 18px var(--color-sombra-principal);
+}
+#mostrarMapa.activo {
+  background: linear-gradient(135deg, var(--color-acento), #0096c7);
+  box-shadow: 0 4px 12px rgba(0, 180, 216, 0.4);
+}
+
+
+/* --- PAGINACIÓN VUE MODERNA Y SEPARADA --- */
+#paginacion-vue {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px; /* más espacio entre botones y texto */
+  margin-top: 40px;
+  font-family: 'Poppins', sans-serif;
+  flex-wrap: wrap;
+}
+
+#paginacion-vue span {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-texto);
+  margin: 0 15px; /* espacio a los lados del texto */
+  min-width: 120px; /* ancho mínimo para que no se amontone */
+  text-align: center;
+}
+
+#paginacion-vue button {
+  padding: 12px 22px; /* más grande y cómodo */
+  border-radius: 14px;
+  border: none;
+  background-color: var(--color-principal);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  min-width: 90px; /* ancho uniforme */
+}
+
+#paginacion-vue button:disabled {
+  background-color: #ddd;
+  color: #888;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+#paginacion-vue button:not(:disabled):hover {
+  transform: scale(1.1);
+  background-color: var(--color-principal-hover);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+  .cabecera { padding: 12px 20px; }
+  .hero h1 { font-size: 2.4rem; }
+  .hero p { font-size: 1rem; }
+  nav { gap: 16px; }
+}
+
+@media (max-width: 768px) {
+  .cabecera { padding: 10px 16px; }
+  .logo img { width: 48px; height: 48px; }
+  /* Stack header elements for small screens and allow nav to scroll horizontally */
+  .cabecera { flex-direction: column; align-items: stretch; gap: 10px; }
+  nav { gap: 12px; overflow-x: auto; -webkit-overflow-scrolling: touch; display: flex; padding: 6px 8px; }
+  nav a { white-space: nowrap; display: inline-block; padding: 8px 12px; }
+  .hero { min-height: 240px; padding: 20px; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero p { font-size: 1rem; }
+  .contacto-main { padding: 24px 18px; }
+  .producto-card img { height: 160px; }
+  footer { padding: 30px 20px 16px; }
+}
+
+@media (max-width: 420px) {
+  .hero h1 { font-size: 1.4rem; }
+  .btn-principal { padding: 10px 18px; }
+  nav a { font-size: 14px; }
+  .grid-productos { gap: 18px; }
+  .producto-info { padding: 14px; }
+}
+
+/* Footer: single column on small screens */
+@media (max-width: 768px) {
+  .footer-content { grid-template-columns: 1fr !important; text-align: left; }
+  .footer-section { padding: 8px 0; }
+  .footer-bottom { padding-top: 12px; }
+  #map { height: 220px; }
+}
+
+@media (max-width: 400px) {
+  .footer-content { gap: 18px; }
+  .footer-section h3 { font-size: 1rem; }
+  .footer-section p { font-size: 14px; }
+}
